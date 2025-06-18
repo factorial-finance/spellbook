@@ -196,3 +196,79 @@ models:
         description: "Repay share"
       - name: seize_share
         description: "Seize share"
+
+  - name: factorial_ton_strategy_vault_deposit
+    meta:
+      blockchain: ton
+      sector: labels
+      contributors: seth
+    config:
+      tags: ['ton', 'factorial', 'labels']
+    description: >
+      Factorial protocol strategy vault deposit events
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tx_hash
+            - block_date
+    columns:
+      - name: block_date
+        description: "block_date of the transaction"
+      - name: tx_hash
+        description: "transaction hash"
+      - name: trace_id
+        description: "trace id"
+      - name: tx_now
+        description: "transaction timestamp"
+      - name: tx_lt
+        description: "transaction logical time"
+      - name: vault_address
+        description: "Factorial vault address"
+      - name: vault_name
+        description: "Factorial vault name"
+      - name: owner_address
+        description: "Owner address"
+      - name: asset_address
+        description: "Asset address"
+      - name: amount
+        description: "Amount of asset"
+      - name: share
+        description: "Share of asset"
+
+  - name: factorial_ton_strategy_vault_withdraw
+    meta:
+      blockchain: ton
+      sector: labels
+      contributors: seth
+    config:
+      tags: ['ton', 'factorial', 'labels']
+    description: >
+      Factorial protocol strategy vault withdraw events
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tx_hash
+            - block_date
+    columns:
+      - name: block_date
+        description: "block_date of the transaction"
+      - name: tx_hash
+        description: "transaction hash"
+      - name: trace_id
+        description: "trace id"
+      - name: tx_now
+        description: "transaction timestamp"
+      - name: tx_lt
+        description: "transaction logical time"
+      - name: vault_address
+        description: "Factorial vault address"
+      - name: vault_name
+        description: "Factorial vault name"
+      - name: owner_address
+        description: "Owner address"
+      - name: asset_address
+        description: "Asset address"
+      - name: amount
+        description: "Amount of asset"
+      - name: share
+        description: "Share of asset"
