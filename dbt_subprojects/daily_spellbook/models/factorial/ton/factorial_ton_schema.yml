@@ -272,3 +272,43 @@ models:
         description: "Amount of asset"
       - name: share
         description: "Share of asset"
+
+  - name: factorial_ton_strategy_vault_swap
+    meta:
+      blockchain: ton
+      sector: labels
+      contributors: seth
+    config:
+      tags: ['ton', 'factorial', 'labels']
+    description: >
+      Factorial protocol strategy vault swap events (RFQ notifications)
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tx_hash
+            - block_date
+    columns:
+      - name: block_date
+        description: "block_date of the transaction"
+      - name: tx_hash
+        description: "transaction hash"
+      - name: trace_id
+        description: "trace id"
+      - name: tx_now
+        description: "transaction timestamp"
+      - name: tx_lt
+        description: "transaction logical time"
+      - name: vault_address
+        description: "Factorial vault address"
+      - name: vault_name
+        description: "Factorial vault name"
+      - name: rfq_index
+        description: "RFQ (Request for Quote) index in storage"
+      - name: sell_asset_address
+        description: "Address of the asset being sold"
+      - name: buy_asset_address
+        description: "Address of the asset being bought"
+      - name: sell_asset_amount
+        description: "Amount of the sell asset"
+      - name: buy_asset_amount
+        description: "Amount of the buy asset that was settled"
